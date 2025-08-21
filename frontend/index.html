@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>Recipes</h1>
+    <div class="controls">
+      <div class="field">
+        <label>Title</label>
+        <input id="filter-title" placeholder="e.g. pie" />
+      </div>
+      <div class="field">
+        <label>Cuisine</label>
+        <input id="filter-cuisine" placeholder="e.g. Southern Recipes" />
+      </div>
+      <div class="field">
+        <label>Rating</label>
+        <input id="filter-rating" placeholder="e.g. >=4.5" />
+      </div>
+      <div class="field">
+        <label>Total Time</label>
+        <input id="filter-total" placeholder="e.g. <=30" />
+      </div>
+      <div class="field">
+        <label>Calories</label>
+        <input id="filter-calories" placeholder="e.g. <=400" />
+      </div>
+      <button id="btn-search">Search</button>
+      <button id="btn-clear">Clear</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="table-controls">
+      <div>
+        Results per page:
+        <select id="limit">
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="40">40</option>
+          <option value="50">50</option>
+        </select>
+      </div>
+      <div class="pager">
+        <button id="prev-page">Prev</button>
+        <span id="page-info"></span>
+        <button id="next-page">Next</button>
+      </div>
+    </div>
+
+    <div id="messages" class="messages hidden"></div>
+
+    <table id="recipes-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Cuisine</th>
+          <th>Rating</th>
+          <th>Total Time</th>
+          <th>Serves</th>
+        </tr>
+      </thead>
+      <tbody id="recipes-body"></tbody>
+    </table>
+  </main>
+
+  <aside id="drawer" class="drawer">
+    <div class="drawer-header">
+      <h2 id="drawer-title"></h2>
+      <button id="drawer-close">×</button>
+      <div id="drawer-subtitle" class="subtitle"></div>
+    </div>
+    <div class="drawer-content">
+      <div class="kv">
+        <div class="k">Description</div>
+        <div class="v" id="d-description"></div>
+      </div>
+      <div class="kv">
+        <div class="k">Total Time</div>
+        <div class="v">
+          <span id="d-total"></span>
+          <button class="expand" id="expand-times">▼</button>
+        </div>
+      </div>
+      <div id="times-detail" class="times-detail hidden">
+        <div class="kv">
+          <div class="k">Prep Time</div>
+          <div class="v" id="d-prep"></div>
+        </div>
+        <div class="kv">
+          <div class="k">Cook Time</div>
+          <div class="v" id="d-cook"></div>
+        </div>
+      </div>
+
+      <h3>Nutrition</h3>
+      <table class="nutri">
+        <tbody id="nutri-body">
+          <!-- rows inserted dynamically -->
+        </tbody>
+      </table>
+    </div>
+  </aside>
+
+  <script src="./app.js"></script>
+</body>
+</html>
